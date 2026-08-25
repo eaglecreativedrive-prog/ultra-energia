@@ -149,8 +149,14 @@ section{padding:clamp(56px,8vw,104px) 0}
 .dark .card .idx{color:var(--lime)}
 .card p{font-size:15.5px;color:#4A4A66;margin:0}
 .dark .card p{color:rgba(255,255,255,.78)}
-.card.accent{background:var(--lime);border-color:var(--lime)}
-.card.accent h3,.card.accent p,.card.accent .idx{color:#14260A}
+/* o lime deixa de ser destaque fixo e passa a responder ao mouse */
+.card{transition:background .22s ease, border-color .22s ease, transform .22s ease}
+.card h3,.card p,.card .idx{transition:color .22s ease}
+@media(hover:hover){
+  .card:hover{background:var(--lime);border-color:var(--lime);transform:translateY(-4px)}
+  .card:hover h3,.card:hover .idx{color:#14260A}
+  .card:hover p{color:#24400C}
+}
 
 /* ---------- planos ---------- */
 .planos{display:grid;gap:18px;grid-template-columns:1fr}
@@ -179,12 +185,36 @@ section{padding:clamp(56px,8vw,104px) 0}
 @keyframes pulsa{0%,100%{transform:scale(1)}50%{transform:scale(1.055)}}
 .ressalva{font-size:13px;color:#6A6A85;line-height:1.5;margin:18px auto 0;max-width:62ch;text-align:center}
 
+/* ---------- revelacao na rolagem ----------
+   O estado escondido depende da classe js no html: sem JavaScript
+   nada some. Quem pediu menos movimento no sistema recebe o conteudo
+   direto, porque a regra global desliga as transicoes. */
+.js .rv,
+.js .rv-g > *{opacity:0;transform:translateY(14px);
+  transition:opacity .55s ease, transform .55s cubic-bezier(.22,1,.36,1)}
+.js .rv.on,
+.js .rv-g.on > *{opacity:1;transform:none}
+.js .rv-g.on > *:nth-child(1){transition-delay:0ms}
+.js .rv-g.on > *:nth-child(2){transition-delay:90ms}
+.js .rv-g.on > *:nth-child(3){transition-delay:180ms}
+.js .rv-g.on > *:nth-child(4){transition-delay:270ms}
+.js .rv-g.on > *:nth-child(5){transition-delay:360ms}
+.js .rv-g.on > *:nth-child(6){transition-delay:450ms}
+.js .rv-g.on > *:nth-child(7){transition-delay:540ms}
+
 /* ---------- steps ---------- */
 .steps{display:grid;gap:16px;grid-template-columns:1fr;counter-reset:s}
 @media(min-width:760px){.steps{grid-template-columns:repeat(2,1fr)}}
 @media(min-width:1040px){.steps{grid-template-columns:repeat(4,1fr)}}
 .step{background:rgba(255,255,255,.055);border:1px solid rgba(255,255,255,.12);
-  border-radius:var(--radius);padding:28px;position:relative}
+  border-radius:var(--radius);padding:28px;position:relative;
+  transition:background .22s ease, border-color .22s ease, transform .22s ease}
+.step h3,.step p,.step .num{transition:color .22s ease}
+@media(hover:hover){
+  .step:hover{background:var(--lime);border-color:var(--lime);transform:translateY(-4px)}
+  .step:hover h3,.step:hover .num{color:#14260A}
+  .step:hover p{color:#24400C}
+}
 .step .num{font-family:Anton,sans-serif;font-size:44px;line-height:1;color:rgba(140,198,63,.9)}
 .step h3{font-size:19px;line-height:1.14;margin:14px 0 8px}
 
@@ -336,13 +366,13 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between;
 <!-- ================= INVESTIMENTO ================= -->
 <section>
   <div class="wrap">
-    <div class="sec-head">
+    <div class="sec-head rv">
       <p class="label">Prévia de investimento</p>
       <h2>Quanto custa, <span class="hl-dark">a partir da sua conta de luz</span></h2>
       <p class="lead">Uma referência para você já ter ordem de grandeza antes de falar com a gente. O número de painéis e a parcela final saem depois da leitura da sua conta e do seu telhado.</p>
     </div>
 
-    <div class="planos">
+    <div class="planos rv-g">
       <div class="plano">
         <p class="cap">Para quem paga em média</p>
         <p class="conta"><small>R$</small>500<sup>,00</sup></p>
@@ -390,21 +420,21 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between;
       </div>
     </div>
 
-    <div class="prazo">
+    <div class="prazo rv">
       <span class="anton">90 dias para <span class="hl-dark">começar a pagar</span></span>
     </div>
-    <p class="ressalva">Valores sujeitos a análise de crédito. As parcelas acima são um ponto de partida para conta de luz na média indicada — o dimensionamento real do seu projeto define o número de painéis e o valor final.</p>
+    <p class="ressalva rv">Valores sujeitos a análise de crédito. As parcelas acima são um ponto de partida para conta de luz na média indicada — o dimensionamento real do seu projeto define o número de painéis e o valor final.</p>
   </div>
 </section>
 
 <!-- ================= DIFERENCIAIS ================= -->
 <section class="dark" style="padding-top:clamp(48px,6vw,84px)">
   <div class="wrap">
-    <div class="sec-head">
+    <div class="sec-head rv">
       <p class="label">Como a Ultra trabalha</p>
       <h2>Quatro coisas que a gente <span class="hl">não terceiriza</span></h2>
     </div>
-    <div class="cards c4">
+    <div class="cards c4 rv-g">
       <div class="card">
         <span class="idx">Equipe</span>
         <h3>Mão de obra própria</h3>
@@ -436,12 +466,12 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between;
 <!-- ================= PROBLEMA ================= -->
 <section>
   <div class="wrap">
-    <div class="sec-head">
+    <div class="sec-head rv">
       <p class="label">Por que a gente trabalha assim</p>
       <h2>Quatro problemas que a gente ouve <span class="hl-dark">de quem já instalou</span></h2>
       <p class="lead">Quase todo orçamento de solar mostra o mesmo equipamento e a mesma promessa. O que separa uma obra da outra aparece no furo do telhado, no prazo combinado e no telefone depois que a equipe vai embora. Os quatro pontos abaixo são os que mais chegam ao nosso pós-venda, contados por quem instalou com outra empresa.</p>
     </div>
-    <div class="cards c4">
+    <div class="cards c4 rv-g">
       <div class="card">
         <span class="idx">01</span>
         <h3>Instalação terceirizada</h3>
@@ -457,7 +487,7 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between;
         <h3>Dimensionamento no chute</h3>
         <p>Proposta feita sem ler a orientação do telhado e o histórico de consumo entrega um sistema grande demais ou curto demais.</p>
       </div>
-      <div class="card accent">
+      <div class="card">
         <span class="idx">04</span>
         <h3>Some depois da obra</h3>
         <p>O sistema dura décadas. O relacionamento com quem vendeu costuma durar até o dia do pagamento final.</p>
@@ -473,11 +503,11 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between;
 <!-- ================= COMO FUNCIONA ================= -->
 <section class="dark" style="background:var(--indigo)">
   <div class="wrap">
-    <div class="sec-head">
+    <div class="sec-head rv">
       <p class="label">Do primeiro contato à energia ligada</p>
       <h2>Quatro etapas, <span class="hl">sem surpresa no meio</span></h2>
     </div>
-    <div class="steps">
+    <div class="steps rv-g">
       <div class="step">
         <div class="num">01</div>
         <h3>Leitura do consumo</h3>
@@ -506,12 +536,12 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between;
 <!-- ================= FRENTES ================= -->
 <section>
   <div class="wrap">
-    <div class="sec-head">
+    <div class="sec-head rv">
       <p class="label">Para quem a gente projeta</p>
       <h2>Duas frentes, <span class="hl-dark">duas contas diferentes</span></h2>
       <p class="lead">O mesmo painel resolve problemas distintos dependendo de quando a energia é consumida. Por isso o dimensionamento nunca é o mesmo modelo para todo mundo.</p>
     </div>
-    <div class="cards">
+    <div class="cards rv-g">
       <div class="card">
         <span class="idx">Residencial</span>
         <h3>Casa</h3>
@@ -533,12 +563,12 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between;
 <!-- ================= OBRAS ================= -->
 <section class="dark">
   <div class="wrap">
-    <div class="sec-head">
+    <div class="sec-head rv">
       <p class="label">Obras entregues</p>
       <h2>Telhados reais, <span class="hl">fotos da nossa equipe</span></h2>
       <p class="lead">Nenhuma imagem de banco de dados. São instalações executadas em Santa Catarina pela equipe da Ultra.</p>
     </div>
-    <div class="gal">
+    <div class="gal rv-g">
       <figure><img src="assets/obra-01.jpg" alt="Sistema fotovoltaico instalado em telhado metálico" loading="lazy"><figcaption>Telhado metálico · residencial</figcaption></figure>
       <figure><img src="assets/obra-02.jpg" alt="Módulos instalados sobre telha cerâmica" loading="lazy"><figcaption>Telha cerâmica · residencial</figcaption></figure>
       <figure><img src="assets/obra-03.jpg" alt="Sistema instalado em cobertura de área urbana" loading="lazy"><figcaption>Área urbana · residencial</figcaption></figure>
@@ -556,11 +586,11 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between;
 <!-- ================= FAQ ================= -->
 <section>
   <div class="wrap">
-    <div class="sec-head">
+    <div class="sec-head rv">
       <p class="label">Perguntas que o time recebe todo dia</p>
       <h2>Respostas <span class="hl-dark">sem enrolação</span></h2>
     </div>
-    <div class="faq">
+    <div class="faq rv-g">
       <details open>
         <summary>Meu telhado não é virado para o norte. Ainda vale a pena?</summary>
         <p>Vale. O telhado norte é sempre a primeira face que a equipe procura, porque é a melhor. Quando ele não existe, a solução é dividir o sistema entre leste e oeste — aproveitando o sol da manhã de um lado e o da tarde do outro. É a melhor saída possível nesse cenário, e a proposta mostra o impacto disso na geração estimada.</p>
@@ -583,7 +613,7 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between;
       </details>
       <details>
         <summary>Vocês atendem qual região?</summary>
-        <p>Somente Santa Catarina.</p>
+        <p>Santa Catarina e região. A sede fica em Tijucas e a equipe atende todo o estado de Santa Catarina.</p>
       </details>
       <details>
         <summary>E depois que a obra termina?</summary>
@@ -608,7 +638,7 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between;
          data-wa="Olá! Vim pelo site da Ultra Energia e quero falar com o time comercial sobre energia solar."
          data-origem="contato do rodapé">WhatsApp (48) 99219-7177</a>
       <span class="pill ghost">@ultraenergiasc</span>
-      <span class="pill ghost">Atendimento: Santa Catarina</span>
+      <span class="pill ghost">Sede em Tijucas · Todo o estado de SC</span>
     </div>
     <a data-wa="Olá! Vim pelo site da Ultra Energia e quero falar com o time comercial sobre energia solar." data-origem="botão do final" href="https://wa.me/5548992197177?text=Ol%C3%A1%21%20Vim%20pelo%20site%20da%20Ultra%20Energia%20e%20quero%20falar%20com%20o%20time%20comercial%20sobre%20energia%20solar." target="_blank" rel="noopener" class="btn btn-primary">Fale com nosso time comercial</a>
   </div>
@@ -663,6 +693,26 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between;
       sticky.classList.toggle('hide', en[0].isIntersecting);
     }, {threshold:.15}).observe(document.getElementById('form'));
   }
+
+  /* --- conteudo surgindo conforme a pagina rola ------------------------
+     Cada grupo revela os filhos em sequencia quando entra na tela, nao
+     um por rolagem. Dispara uma vez e para de observar. */
+  (function(){
+    var alvos = document.querySelectorAll('.rv, .rv-g');
+    if (!alvos.length) return;
+    if (!('IntersectionObserver' in window)) {
+      alvos.forEach(function(el){ el.classList.add('on'); });
+      return;
+    }
+    var obs = new IntersectionObserver(function(entradas){
+      entradas.forEach(function(e){
+        if (!e.isIntersecting) return;
+        e.target.classList.add('on');
+        obs.unobserve(e.target);
+      });
+    }, {threshold:.12, rootMargin:'0px 0px -8% 0px'});
+    alvos.forEach(function(el){ obs.observe(el); });
+  })();
 
   /* --- números da barra contando ao entrar na tela ---------------------
      Dispara uma vez só, quando a faixa aparece. Quem pediu menos
