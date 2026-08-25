@@ -100,7 +100,7 @@ header{position:sticky;top:0;z-index:50;background:rgba(26,21,71,.92);backdrop-f
 .card-form{background:#fff;color:var(--ink);border-radius:var(--radius);padding:clamp(22px,3.2vw,34px);
   box-shadow:0 30px 70px rgba(6,4,30,.45)}
 .card-form h3{font-size:clamp(22px,2.6vw,28px);margin-bottom:8px}
-.card-form .sub{font-size:14.5px;color:#4A4A66;margin-bottom:22px}
+.card-form .sub{font-size:15.5px;line-height:1.5;color:#3A3A5C;margin:0 0 22px}
 .field{margin-bottom:14px}
 .field label{display:block;font-size:12.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;
   color:#3A3A5C;margin-bottom:7px}
@@ -120,9 +120,9 @@ header{position:sticky;top:0;z-index:50;background:rgba(26,21,71,.92);backdrop-f
 
 /* ---------- strip ---------- */
 .strip{background:var(--indigo);color:#fff}
-.strip .wrap{display:grid;gap:clamp(18px,3vw,28px);grid-template-columns:repeat(2,1fr);
+.strip .wrap{display:grid;gap:clamp(18px,3vw,28px);grid-template-columns:1fr;
   padding-top:34px;padding-bottom:34px}
-@media(min-width:820px){.strip .wrap{grid-template-columns:repeat(4,1fr)}}
+@media(min-width:560px){.strip .wrap{grid-template-columns:repeat(3,1fr)}}
 .stat .n{font-family:Anton,sans-serif;font-size:clamp(30px,4vw,44px);line-height:1;color:var(--lime);
   font-variant-numeric:tabular-nums;font-feature-settings:"tnum" 1}
 .js .strip .stat{opacity:0;transform:translateY(10px);
@@ -301,7 +301,6 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between;
 
       <!-- ============ FORM ============ -->
       <div class="card-form" id="form">
-        <h3>Orçamento gratuito</h3>
         <p class="sub">Preencha e nosso time comercial entra em contato para entender o local e montar o orçamento do seu caso. Sem compromisso.</p>
         <form id="lead-form" novalidate>
           <div class="field">
@@ -358,8 +357,7 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between;
   <div class="wrap">
     <div class="stat"><div class="n" data-conta="9">9</div><p>anos de mercado em energia solar</p></div>
     <div class="stat"><div class="n" data-conta="100" data-sufixo="%">100%</div><p>instalação com equipe própria, sem terceirizar</p></div>
-    <div class="stat"><div class="n">SC</div><p>atendimento em Santa Catarina</p></div>
-    <div class="stat"><div class="n" data-conta="2">2</div><p>frentes: residencial e empresarial</p></div>
+    <div class="stat"><div class="n" data-conta="1000" data-prefixo="+">+1.000</div><p>projetos já homologados</p></div>
   </div>
 </div>
 
@@ -721,16 +719,20 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between;
     var calmo = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
     function conta(el, atraso){
-      var alvo   = parseInt(el.dataset.conta, 10);
-      var sufixo = el.dataset.sufixo || '';
-      var dur    = 1100;
-      el.textContent = '0' + sufixo;
+      var alvo    = parseInt(el.dataset.conta, 10);
+      var sufixo  = el.dataset.sufixo  || '';
+      var prefixo = el.dataset.prefixo || '';
+      var dur     = 1100;
+      function escreve(v){
+        el.textContent = prefixo + v.toLocaleString('pt-BR') + sufixo;
+      }
+      escreve(0);
       setTimeout(function(){
         var t0 = performance.now();
         (function passo(agora){
           var t = Math.min((agora - t0) / dur, 1);
           var e = 1 - Math.pow(1 - t, 3);           /* desacelera no fim */
-          el.textContent = Math.round(alvo * e) + sufixo;
+          escreve(Math.round(alvo * e));
           if (t < 1) requestAnimationFrame(passo);
         })(t0);
       }, atraso);
