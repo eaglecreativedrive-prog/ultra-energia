@@ -131,7 +131,12 @@ header{position:sticky;top:0;z-index:50;background:rgba(26,21,71,.92);backdrop-f
 .strip .wrap{display:grid;gap:clamp(18px,3vw,28px);grid-template-columns:1fr;
   padding-top:34px;padding-bottom:34px}
 @media(min-width:560px){.strip .wrap{grid-template-columns:repeat(3,1fr)}}
-.stat .n{font-family:Anton,sans-serif;font-size:clamp(38px,5.2vw,60px);line-height:1.02;color:var(--lime);
+/* no celular a barra vira uma coluna so, entao tudo fica centralizado */
+@media(max-width:559px){
+  .strip .wrap{text-align:center;gap:30px;padding-top:44px;padding-bottom:44px}
+  .stat p{margin-left:auto;margin-right:auto}
+}
+.stat .n{font-family:Anton,sans-serif;font-size:clamp(50px,5.2vw,60px);line-height:1.02;color:var(--lime);
   font-variant-numeric:tabular-nums;font-feature-settings:"tnum" 1}
 .stat .n .u{font-size:.62em}
 .stat p{max-width:26ch}
@@ -190,8 +195,10 @@ section{padding:clamp(56px,8vw,104px) 0}
 
 .prazo{display:flex;align-items:center;justify-content:center;gap:12px;flex-wrap:wrap;
   text-align:center;margin-top:34px}
-.prazo .anton{font-size:clamp(28px,4.4vw,46px);color:var(--indigo);display:inline-block;
-  transform-origin:center;animation:pulsa 2.6s ease-in-out infinite;will-change:transform}
+.prazo .anton{font-size:clamp(36px,5.6vw,58px);line-height:1.06;color:var(--indigo);
+  display:inline-block;transform-origin:center;
+  animation:pulsa 2.6s ease-in-out infinite;will-change:transform}
+.prazo .anton .l{display:block}
 @keyframes pulsa{0%,100%{transform:scale(1)}50%{transform:scale(1.055)}}
 .ressalva{font-size:13px;color:#6A6A85;line-height:1.5;margin:18px auto 0;max-width:62ch;text-align:center}
 
@@ -429,7 +436,7 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between;
     </div>
 
     <div class="prazo rv">
-      <span class="anton">90 dias para <span class="hl-dark">começar a pagar</span></span>
+      <span class="anton"><span class="l">90 dias para</span><span class="l hl-dark">começar a pagar</span></span>
     </div>
     <p class="ressalva rv">Valores sujeitos a análise de crédito. As parcelas acima são um ponto de partida para conta de luz na média indicada — o dimensionamento real do seu projeto define o número de painéis e o valor final.</p>
   </div>
@@ -759,7 +766,7 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between;
     if (!('IntersectionObserver' in window)) { dispara(); return; }
     new IntersectionObserver(function(entradas, obs){
       if (entradas[0].isIntersecting) { dispara(); obs.disconnect(); }
-    }, {threshold:.4}).observe(faixa);
+    }, {threshold:.15}).observe(faixa);
   })();
 
   /* --- botões que vão direto para o WhatsApp ---------------------------
