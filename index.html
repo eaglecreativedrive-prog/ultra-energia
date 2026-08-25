@@ -1,0 +1,576 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ultra Energia — Energia solar com mão de obra própria em Santa Catarina</title>
+<meta name="description" content="Projeto, instalação e homologação de energia solar em Santa Catarina. Equipe própria, 9 anos de mercado e pós-venda que atende depois da obra. Peça sua análise gratuita.">
+<meta name="robots" content="index,follow">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Ultra Energia — energia solar com equipe própria em SC">
+<meta property="og:description" content="9 anos instalando com mão de obra própria em Santa Catarina. Análise gratuita do seu telhado, sem compromisso.">
+<meta property="og:image" content="assets/hero.jpg">
+<meta property="og:locale" content="pt_BR">
+<link rel="icon" href="assets/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<!-- ==== PIXELS / TAGS: cole aqui os códigos do Meta Pixel e do Google Ads ==== -->
+<!-- Meta Pixel: <script>!function(f,b,e,v,n,t,s){...}</script> -->
+<!-- Google Ads / GA4: <script async src="https://www.googletagmanager.com/gtag/js?id=..."></script> -->
+
+<style>
+:root{
+  --indigo:#241E63;
+  --indigo-2:#332C8A;
+  --indigo-deep:#1A1547;
+  --offwhite:#F2F3F7;
+  --lime:#8CC63F;
+  --lime-dark:#5F9420;
+  --blue:#1B5FF5;
+  --ink:#12122A;
+  --radius:28px;
+  --pad:clamp(20px,5vw,52px);
+  --maxw:1180px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;background:var(--offwhite);color:var(--ink);
+  font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  font-size:17px;line-height:1.55;-webkit-font-smoothing:antialiased;
+}
+img{max-width:100%;display:block}
+a{color:inherit}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 var(--pad)}
+
+h1,h2,h3,.anton{font-family:Anton,Impact,sans-serif;font-weight:400;text-transform:uppercase;line-height:1.04;letter-spacing:.01em;margin:0}
+h1{font-size:clamp(38px,6.2vw,66px)}
+h2{font-size:clamp(30px,4.4vw,48px)}
+h3{font-size:clamp(20px,2.4vw,26px);line-height:1.14}
+.hl{color:var(--lime)}
+.hl-dark{color:var(--lime-dark)}
+p{margin:0 0 16px}
+.lead{font-size:clamp(17px,2vw,20px);line-height:1.5}
+
+.label{font-size:12px;letter-spacing:.16em;text-transform:uppercase;font-weight:600;opacity:.75;margin:0 0 14px}
+.pill{display:inline-flex;align-items:center;gap:8px;background:var(--lime);color:#12240A;
+  font-size:12.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;
+  padding:8px 16px;border-radius:999px}
+.pill.ghost{background:rgba(255,255,255,.10);color:#fff;border:1px solid rgba(255,255,255,.22)}
+
+/* ---------- header ---------- */
+header{position:sticky;top:0;z-index:50;background:rgba(26,21,71,.92);backdrop-filter:blur(12px);
+  border-bottom:1px solid rgba(255,255,255,.10)}
+.nav{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-top:14px;padding-bottom:14px}
+.nav img{height:34px;width:auto}
+.nav-meta{display:none;color:#fff;font-size:13.5px;opacity:.85}
+@media(min-width:860px){.nav-meta{display:block}}
+
+/* ---------- buttons ---------- */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;
+  font-family:Inter,sans-serif;font-weight:700;font-size:16px;line-height:1;
+  padding:17px 26px;border-radius:14px;border:0;cursor:pointer;text-decoration:none;
+  transition:transform .16s ease, box-shadow .16s ease, background .16s ease}
+.btn-primary{background:var(--lime);color:#14260A;box-shadow:0 8px 24px rgba(140,198,63,.32)}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 12px 30px rgba(140,198,63,.42)}
+.btn-ghost{background:transparent;color:#fff;border:1.5px solid rgba(255,255,255,.35)}
+.btn-ghost:hover{background:rgba(255,255,255,.10)}
+.btn-block{width:100%}
+
+/* ---------- hero ---------- */
+.hero{position:relative;background:var(--indigo-deep);color:#fff;overflow:hidden}
+.hero-bg{position:absolute;inset:0;background:url('assets/hero.jpg') center 42%/cover no-repeat;opacity:.42}
+.hero-bg::after{content:"";position:absolute;inset:0;
+  background:linear-gradient(180deg,rgba(26,21,71,.62) 0%,rgba(26,21,71,.88) 58%,rgba(26,21,71,.98) 100%)}
+.hero .wrap{position:relative;z-index:2;padding-top:clamp(48px,7vw,88px);padding-bottom:clamp(48px,7vw,88px)}
+.hero-grid{display:grid;gap:clamp(28px,4vw,52px);grid-template-columns:1fr;align-items:start}
+@media(min-width:980px){.hero-grid{grid-template-columns:1.05fr .95fr}}
+.hero h1{margin:18px 0 20px;max-width:16ch}
+.hero .lead{opacity:.9;max-width:46ch}
+.hero-marks{display:flex;flex-wrap:wrap;gap:10px;margin-top:26px}
+.mark{display:flex;align-items:center;gap:9px;font-size:14px;font-weight:600;
+  background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.14);
+  padding:10px 15px;border-radius:12px}
+.mark svg{flex:0 0 auto}
+
+/* ---------- form card ---------- */
+.card-form{background:#fff;color:var(--ink);border-radius:var(--radius);padding:clamp(22px,3.2vw,34px);
+  box-shadow:0 30px 70px rgba(6,4,30,.45)}
+.card-form h3{font-size:clamp(22px,2.6vw,28px);margin-bottom:8px}
+.card-form .sub{font-size:14.5px;color:#4A4A66;margin-bottom:22px}
+.field{margin-bottom:14px}
+.field label{display:block;font-size:12.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;
+  color:#3A3A5C;margin-bottom:7px}
+.field input,.field select,.field textarea{
+  width:100%;font-family:inherit;font-size:16px;color:var(--ink);
+  padding:14px 15px;border:1.5px solid #DCDDE8;border-radius:12px;background:#fff;
+  transition:border-color .15s ease, box-shadow .15s ease}
+.field input:focus,.field select:focus,.field textarea:focus{
+  outline:none;border-color:var(--indigo-2);box-shadow:0 0 0 3px rgba(51,44,138,.14)}
+.field input[aria-invalid="true"],.field select[aria-invalid="true"]{border-color:#D64545}
+.err{display:none;font-size:12.5px;color:#D64545;font-weight:600;margin-top:6px}
+.err.on{display:block}
+.grid-2{display:grid;gap:14px;grid-template-columns:1fr}
+@media(min-width:560px){.grid-2{grid-template-columns:1fr 1fr}}
+.form-note{font-size:12.5px;color:#6A6A85;margin:14px 0 0;text-align:center;line-height:1.45}
+.hp{position:absolute;left:-9999px;opacity:0;height:0;width:0}
+
+/* ---------- strip ---------- */
+.strip{background:var(--indigo);color:#fff}
+.strip .wrap{display:grid;gap:clamp(18px,3vw,28px);grid-template-columns:repeat(2,1fr);
+  padding-top:34px;padding-bottom:34px}
+@media(min-width:820px){.strip .wrap{grid-template-columns:repeat(4,1fr)}}
+.stat .n{font-family:Anton,sans-serif;font-size:clamp(30px,4vw,44px);line-height:1;color:var(--lime)}
+.stat p{font-size:14px;opacity:.85;margin:8px 0 0;line-height:1.35}
+
+/* ---------- sections ---------- */
+section{padding:clamp(56px,8vw,104px) 0}
+.sec-head{max-width:60ch;margin-bottom:clamp(30px,4vw,48px)}
+.sec-head p{color:#4A4A66}
+.dark{background:var(--indigo-deep);color:#fff}
+.dark .sec-head p,.dark p{color:rgba(255,255,255,.82)}
+.dark .label{opacity:.7}
+
+/* ---------- cards ---------- */
+.cards{display:grid;gap:18px;grid-template-columns:1fr}
+@media(min-width:700px){.cards{grid-template-columns:1fr 1fr}}
+@media(min-width:1020px){.cards.c4{grid-template-columns:repeat(4,1fr)}}
+.card{background:#fff;border-radius:var(--radius);padding:clamp(24px,2.6vw,32px);
+  border:1px solid #E4E5EE;display:flex;flex-direction:column;gap:12px}
+.dark .card{background:rgba(255,255,255,.055);border-color:rgba(255,255,255,.12)}
+.card .idx{font-family:Anton,sans-serif;font-size:14px;letter-spacing:.1em;color:var(--lime-dark)}
+.dark .card .idx{color:var(--lime)}
+.card p{font-size:15.5px;color:#4A4A66;margin:0}
+.dark .card p{color:rgba(255,255,255,.78)}
+.card.accent{background:var(--lime);border-color:var(--lime)}
+.card.accent h3,.card.accent p,.card.accent .idx{color:#14260A}
+
+/* ---------- steps ---------- */
+.steps{display:grid;gap:16px;grid-template-columns:1fr;counter-reset:s}
+@media(min-width:760px){.steps{grid-template-columns:repeat(2,1fr)}}
+@media(min-width:1040px){.steps{grid-template-columns:repeat(4,1fr)}}
+.step{background:rgba(255,255,255,.055);border:1px solid rgba(255,255,255,.12);
+  border-radius:var(--radius);padding:28px;position:relative}
+.step .num{font-family:Anton,sans-serif;font-size:44px;line-height:1;color:rgba(140,198,63,.9)}
+.step h3{font-size:19px;line-height:1.14;margin:14px 0 8px}
+
+/* ---------- gallery ---------- */
+.gal{display:grid;gap:14px;grid-template-columns:repeat(2,1fr)}
+@media(min-width:860px){.gal{grid-template-columns:repeat(3,1fr)}}
+.gal figure{margin:0;border-radius:20px;overflow:hidden;position:relative;aspect-ratio:4/3;background:#0D0A2A}
+.gal img{width:100%;height:100%;object-fit:cover;transition:transform .5s ease}
+.gal figure:hover img{transform:scale(1.05)}
+.gal figcaption{position:absolute;left:0;right:0;bottom:0;padding:14px 16px;color:#fff;
+  font-size:13px;font-weight:600;letter-spacing:.02em;
+  background:linear-gradient(180deg,rgba(26,21,71,0),rgba(26,21,71,.88))}
+
+/* ---------- faq ---------- */
+.faq{max-width:840px}
+details{background:#fff;border:1px solid #E4E5EE;border-radius:18px;padding:20px 22px;margin-bottom:12px}
+details[open]{border-color:#CFD1E0}
+summary{cursor:pointer;list-style:none;font-weight:700;font-size:17px;display:flex;justify-content:space-between;gap:16px;align-items:flex-start}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";font-family:Anton,sans-serif;font-size:24px;line-height:1;color:var(--lime-dark);flex:0 0 auto}
+details[open] summary::after{content:"–"}
+details p{margin:14px 0 0;font-size:15.5px;color:#4A4A66}
+
+/* ---------- final cta ---------- */
+.final{background:var(--indigo);color:#fff;text-align:center}
+.final .wrap{max-width:820px}
+.final img.logo{height:56px;width:auto;margin:0 auto 26px}
+.final h2{margin-bottom:16px}
+.final .contacts{display:flex;flex-wrap:wrap;justify-content:center;gap:12px;margin:28px 0 30px}
+
+/* ---------- footer ---------- */
+footer{background:var(--indigo-deep);color:rgba(255,255,255,.6);font-size:13px;padding:30px 0}
+footer .wrap{display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between;align-items:center}
+
+/* ---------- sticky mobile cta ---------- */
+.sticky-cta{position:fixed;left:12px;right:12px;bottom:12px;z-index:60;display:none;
+  transition:opacity .25s ease, transform .25s ease}
+.sticky-cta.hide{opacity:0;transform:translateY(120%);pointer-events:none}
+@media(max-width:979px){.sticky-cta{display:block}body{padding-bottom:84px}}
+
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <img src="assets/logo-white.png" alt="Ultra Energia">
+    <span class="nav-meta">Santa Catarina · Equipe própria · 9 anos</span>
+    <a href="#form" class="btn btn-primary" style="padding:13px 20px;font-size:15px">Pedir análise gratuita</a>
+  </div>
+</header>
+
+<!-- ================= HERO ================= -->
+<div class="hero" id="topo">
+  <div class="hero-bg"></div>
+  <div class="wrap">
+    <div class="hero-grid">
+      <div>
+        <span class="pill">Atendimento em Santa Catarina</span>
+        <h1>Quem projeta, instala e volta depois da obra é a <span class="hl">mesma equipe</span></h1>
+        <p class="lead">Há 9 anos a Ultra Energia faz energia solar em SC com mão de obra própria — do dimensionamento à homologação na concessionária. Sem terceirizar a parte que fica no seu telhado.</p>
+        <div class="hero-marks">
+          <div class="mark">Mão de obra própria</div>
+          <div class="mark">Instalação rápida</div>
+          <div class="mark">Homologação inclusa</div>
+          <div class="mark">Pós-venda ativo</div>
+        </div>
+      </div>
+
+      <!-- ============ FORM ============ -->
+      <div class="card-form" id="form">
+        <h3>Análise gratuita do seu telhado</h3>
+        <p class="sub">Preencha e nosso time comercial retorna com o dimensionamento e o orçamento do seu caso. Sem compromisso.</p>
+        <form id="lead-form" novalidate>
+          <div class="field">
+            <label for="nome">Nome</label>
+            <input id="nome" name="nome" type="text" autocomplete="name" placeholder="Como podemos te chamar" required>
+            <span class="err" data-for="nome">Informe seu nome.</span>
+          </div>
+          <div class="grid-2">
+            <div class="field">
+              <label for="telefone">WhatsApp</label>
+              <input id="telefone" name="telefone" type="tel" inputmode="numeric" autocomplete="tel" placeholder="(48) 90000-0000" required>
+              <span class="err" data-for="telefone">Informe um número válido com DDD.</span>
+            </div>
+            <div class="field">
+              <label for="cidade">Cidade</label>
+              <input id="cidade" name="cidade" type="text" autocomplete="address-level2" placeholder="Sua cidade em SC" required>
+              <span class="err" data-for="cidade">Informe sua cidade.</span>
+            </div>
+          </div>
+          <div class="grid-2">
+            <div class="field">
+              <label for="tipo">Tipo de imóvel</label>
+              <select id="tipo" name="tipo" required>
+                <option value="">Selecione</option>
+                <option>Residência</option>
+                <option>Empresa / comércio</option>
+                <option>Propriedade rural</option>
+              </select>
+              <span class="err" data-for="tipo">Selecione uma opção.</span>
+            </div>
+            <div class="field">
+              <label for="conta">Conta de luz por mês</label>
+              <select id="conta" name="conta" required>
+                <option value="">Selecione</option>
+                <option>Até R$ 300</option>
+                <option>R$ 300 a R$ 600</option>
+                <option>R$ 600 a R$ 1.200</option>
+                <option>R$ 1.200 a R$ 3.000</option>
+                <option>Acima de R$ 3.000</option>
+              </select>
+              <span class="err" data-for="conta">Selecione uma opção.</span>
+            </div>
+          </div>
+          <input class="hp" type="text" name="empresa_site" tabindex="-1" autocomplete="off" aria-hidden="true">
+          <button type="submit" class="btn btn-primary btn-block" style="margin-top:8px">Fale com nosso time comercial</button>
+          <p class="form-note">Ao enviar, seus dados vão direto para o time comercial da Ultra Energia. Usamos apenas para responder seu pedido de orçamento.</p>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ================= STRIP ================= -->
+<div class="strip">
+  <div class="wrap">
+    <div class="stat"><div class="n">9</div><p>anos de mercado em energia solar</p></div>
+    <div class="stat"><div class="n">100%</div><p>instalação com equipe própria, sem terceirizar</p></div>
+    <div class="stat"><div class="n">SC</div><p>atendimento em Santa Catarina</p></div>
+    <div class="stat"><div class="n">3</div><p>frentes: residencial, empresarial e rural</p></div>
+  </div>
+</div>
+
+<!-- ================= DIFERENCIAIS ================= -->
+<section class="dark" style="padding-top:clamp(48px,6vw,84px)">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="label">Como a Ultra trabalha</p>
+      <h2>Quatro coisas que a gente <span class="hl">não terceiriza</span></h2>
+    </div>
+    <div class="cards c4">
+      <div class="card">
+        <span class="idx">Equipe</span>
+        <h3>Mão de obra própria</h3>
+        <p>Os instaladores são da Ultra. Mesmo padrão de fixação, mesma vedação, mesma pessoa para responder por isso depois.</p>
+      </div>
+      <div class="card">
+        <span class="idx">Prazo</span>
+        <h3>Instalação rápida</h3>
+        <p>Agenda própria e material comprado direto. A obra entra no calendário e a data combinada é a data que vale.</p>
+      </div>
+      <div class="card">
+        <span class="idx">Burocracia</span>
+        <h3>Homologação inclusa</h3>
+        <p>Projeto, protocolo e acompanhamento junto à concessionária fazem parte do serviço. Você não fica na fila sozinho.</p>
+      </div>
+      <div class="card">
+        <span class="idx">Depois</span>
+        <h3>Pós-venda que atende</h3>
+        <p>Existe uma área dedicada a cliente já instalado. Dúvida de geração, garantia ou manutenção tem canal e responsável.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= PROBLEMA ================= -->
+<section>
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="label">Por que a gente trabalha assim</p>
+      <h2>Quatro problemas que a gente ouve <span class="hl-dark">de quem já instalou</span></h2>
+      <p class="lead">Quase todo orçamento de solar mostra o mesmo equipamento e a mesma promessa. O que separa uma obra da outra aparece no furo do telhado, no prazo combinado e no telefone depois que a equipe vai embora. Os quatro pontos abaixo são os que mais chegam ao nosso pós-venda, contados por quem instalou com outra empresa.</p>
+    </div>
+    <div class="cards c4">
+      <div class="card">
+        <span class="idx">01</span>
+        <h3>Instalação terceirizada</h3>
+        <p>Quem vende não é quem instala. Se aparece infiltração ou falha, começa a discussão sobre de quem é a responsabilidade.</p>
+      </div>
+      <div class="card">
+        <span class="idx">02</span>
+        <h3>Prazo que escorrega</h3>
+        <p>Equipe alugada trabalha na agenda de outra empresa. O sistema fica pronto no telhado e parado esperando homologação.</p>
+      </div>
+      <div class="card">
+        <span class="idx">03</span>
+        <h3>Dimensionamento no chute</h3>
+        <p>Proposta feita sem ler a orientação do telhado e o histórico de consumo entrega um sistema grande demais ou curto demais.</p>
+      </div>
+      <div class="card accent">
+        <span class="idx">04</span>
+        <h3>Some depois da obra</h3>
+        <p>O sistema dura décadas. O relacionamento com quem vendeu costuma durar até o dia do pagamento final.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= COMO FUNCIONA ================= -->
+<section class="dark" style="background:var(--indigo)">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="label">Do primeiro contato à energia ligada</p>
+      <h2>Quatro etapas, <span class="hl">sem surpresa no meio</span></h2>
+    </div>
+    <div class="steps">
+      <div class="step">
+        <div class="num">01</div>
+        <h3>Leitura do consumo</h3>
+        <p>Você envia a conta de luz. A gente lê o histórico e a classe tarifária antes de falar em tamanho de sistema.</p>
+      </div>
+      <div class="step">
+        <div class="num">02</div>
+        <h3>Leitura do telhado</h3>
+        <p>Orientação, inclinação, área útil e sombreamento. O telhado norte é a primeira face que procuramos; quando não existe, usamos leste e oeste juntos.</p>
+      </div>
+      <div class="step">
+        <div class="num">03</div>
+        <h3>Proposta e projeto</h3>
+        <p>Potência, equipamento especificado e estimativa de geração declarada como estimativa — com o cálculo aberto, não um número redondo de vendedor.</p>
+      </div>
+      <div class="step">
+        <div class="num">04</div>
+        <h3>Instalação e homologação</h3>
+        <p>Equipe própria executa a obra e a Ultra conduz o processo junto à concessionária até o sistema estar ligado e medindo.</p>
+      </div>
+    </div>
+    <div style="margin-top:36px"><a href="#form" class="btn btn-primary">Quero minha análise gratuita</a></div>
+  </div>
+</section>
+
+<!-- ================= FRENTES ================= -->
+<section>
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="label">Para quem a gente projeta</p>
+      <h2>Três frentes, <span class="hl-dark">três contas diferentes</span></h2>
+      <p class="lead">O mesmo painel resolve problemas distintos dependendo de quando a energia é consumida. Por isso o dimensionamento nunca é o mesmo modelo para todo mundo.</p>
+    </div>
+    <div class="cards">
+      <div class="card">
+        <span class="idx">Residencial</span>
+        <h3>Casa</h3>
+        <p>Consumo concentrado no fim do dia e no fim de semana. O projeto precisa considerar o que é gerado durante o dia e devolvido à rede, não só o total do mês.</p>
+      </div>
+      <div class="card">
+        <span class="idx">Empresarial</span>
+        <h3>Empresa e comércio</h3>
+        <p>A empresa consome exatamente na hora em que o sol gera. É a frente com maior aproveitamento direto — desde que a classe tarifária seja lida antes.</p>
+      </div>
+      <div class="card">
+        <span class="idx">Rural</span>
+        <h3>Propriedade rural</h3>
+        <p>Área disponível, distância entre o padrão e a carga, e equipamentos que ligam em horários específicos mudam o desenho do sistema.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= OBRAS ================= -->
+<section class="dark">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="label">Obras entregues</p>
+      <h2>Telhados reais, <span class="hl">fotos da nossa equipe</span></h2>
+      <p class="lead">Nenhuma imagem de banco de dados. São instalações executadas em Santa Catarina pela equipe da Ultra.</p>
+    </div>
+    <div class="gal">
+      <figure><img src="assets/obra-01.jpg" alt="Sistema fotovoltaico instalado em telhado metálico" loading="lazy"><figcaption>Telhado metálico · residencial</figcaption></figure>
+      <figure><img src="assets/obra-02.jpg" alt="Módulos instalados sobre telha cerâmica" loading="lazy"><figcaption>Telha cerâmica · residencial</figcaption></figure>
+      <figure><img src="assets/obra-03.jpg" alt="Sistema instalado em cobertura de área urbana" loading="lazy"><figcaption>Área urbana · residencial</figcaption></figure>
+      <figure><img src="assets/obra-04.jpg" alt="Módulos em duas faces do telhado" loading="lazy"><figcaption>Duas faces · leste e oeste</figcaption></figure>
+      <figure><img src="assets/obra-05.jpg" alt="Inversor string instalado em parede externa" loading="lazy"><figcaption>Inversor string · instalação própria</figcaption></figure>
+      <figure><img src="assets/obra-06.jpg" alt="Detalhe da fixação e cabeamento do sistema" loading="lazy"><figcaption>Detalhe de fixação e cabeamento</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FAQ ================= -->
+<section>
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="label">Perguntas que o time recebe todo dia</p>
+      <h2>Respostas <span class="hl-dark">sem enrolação</span></h2>
+    </div>
+    <div class="faq">
+      <details open>
+        <summary>Meu telhado não é virado para o norte. Ainda vale a pena?</summary>
+        <p>Vale. O telhado norte é sempre a primeira face que a equipe procura, porque é a melhor. Quando ele não existe, a solução é dividir o sistema entre leste e oeste — aproveitando o sol da manhã de um lado e o da tarde do outro. É a melhor saída possível nesse cenário, e a proposta mostra o impacto disso na geração estimada.</p>
+      </details>
+      <details>
+        <summary>Preciso de microinversor?</summary>
+        <p>Na maior parte dos casos, não. Cerca de nove em cada dez sistemas que instalamos usam inversor string. O microinversor entra quando o telhado é muito fracionado, com módulos em várias faces, ou quando há sombreamento relevante. Ele fica embaixo do painel, no telhado, e no verão trabalha em temperatura alta — o que aumenta a chance de acionamento de garantia. Quando o seu projeto pedir micro, a gente especifica e explica o porquê.</p>
+      </details>
+      <details>
+        <summary>Uma sombra em um painel derruba o sistema inteiro?</summary>
+        <p>Não. Painel moderno tem diodos de bypass: a sombra afeta a parte sombreada do módulo, não zera o módulo nem a série toda. Isso não significa ignorar sombreamento — ele entra no dimensionamento, e é um dos motivos que podem levar o projeto para microinversor.</p>
+      </details>
+      <details>
+        <summary>Quanto eu vou economizar?</summary>
+        <p>Não trabalhamos com percentual pronto de economia, porque isso depende do seu consumo, da sua tarifa e da geração real do sistema. O que entregamos é uma estimativa de geração calculada a partir da potência instalada e das condições de Santa Catarina, declarada como estimativa, e comparada com o histórico da sua conta.</p>
+      </details>
+      <details>
+        <summary>Vocês cuidam da papelada com a concessionária?</summary>
+        <p>Sim. Projeto, protocolo e acompanhamento da homologação fazem parte do serviço. O sistema só é considerado entregue quando está ligado e regularizado.</p>
+      </details>
+      <details>
+        <summary>Vocês atendem qual região?</summary>
+        <p>Somente Santa Catarina.</p>
+      </details>
+      <details>
+        <summary>E depois que a obra termina?</summary>
+        <p>A Ultra tem uma área de pós-venda dedicada a cliente já instalado — dúvida sobre geração, acionamento de garantia dos equipamentos ou manutenção. É a mesma empresa que instalou que responde.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CTA FINAL ================= -->
+<section class="final" id="contato">
+  <div class="wrap">
+    <img src="assets/logo-white.png" alt="Ultra Energia" class="logo">
+    <h2>Manda a sua conta de luz. <span class="hl">A gente lê o telhado</span></h2>
+    <p class="lead" style="opacity:.85;margin:0 auto;max-width:52ch">Análise e orçamento sem custo e sem compromisso. Se o seu caso não fechar conta, a gente diz isso na proposta.</p>
+    <div class="contacts">
+      <span class="pill ghost">WhatsApp (48) 99144-8590</span>
+      <span class="pill ghost">@ultraenergiasc</span>
+      <span class="pill ghost">Atendimento: Santa Catarina</span>
+    </div>
+    <a href="#form" class="btn btn-primary">Fale com nosso time comercial</a>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span>© <span id="ano"></span> Ultra Energia · Energia solar em Santa Catarina</span>
+    <span>Projeto · Instalação · Homologação</span>
+  </div>
+</footer>
+
+<div class="sticky-cta"><a href="#form" class="btn btn-primary btn-block">Pedir análise gratuita</a></div>
+
+<script>
+(function(){
+  var WHATSAPP = "5548991448590"; /* <- número de destino dos leads */
+
+  document.getElementById('ano').textContent = new Date().getFullYear();
+
+  /* --- máscara de telefone --- */
+  var tel = document.getElementById('telefone');
+  tel.addEventListener('input', function(){
+    var v = this.value.replace(/\D/g,'').slice(0,11);
+    if (v.length > 6)      v = '(' + v.slice(0,2) + ') ' + v.slice(2,v.length-4) + '-' + v.slice(-4);
+    else if (v.length > 2) v = '(' + v.slice(0,2) + ') ' + v.slice(2);
+    else if (v.length > 0) v = '(' + v;
+    this.value = v;
+  });
+
+  /* --- captura de UTM para saber de qual anúncio veio o lead --- */
+  function utms(){
+    var p = new URLSearchParams(location.search), out = [];
+    ['utm_source','utm_medium','utm_campaign','utm_content','utm_term'].forEach(function(k){
+      if (p.get(k)) out.push(k.replace('utm_','') + ': ' + p.get(k));
+    });
+    return out.join(' · ');
+  }
+
+  /* --- some com a barra fixa quando o formulário está na tela --- */
+  var sticky = document.querySelector('.sticky-cta');
+  if ('IntersectionObserver' in window) {
+    new IntersectionObserver(function(en){
+      sticky.classList.toggle('hide', en[0].isIntersecting);
+    }, {threshold:.15}).observe(document.getElementById('form'));
+  }
+
+  var form = document.getElementById('lead-form');
+  function setErr(el, on){
+    el.setAttribute('aria-invalid', on ? 'true' : 'false');
+    var msg = form.querySelector('.err[data-for="' + el.id + '"]');
+    if (msg) msg.classList.toggle('on', on);
+  }
+
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    if (form.empresa_site.value) return; /* honeypot: bot */
+
+    var campos = ['nome','telefone','cidade','tipo','conta'], ok = true;
+    campos.forEach(function(id){
+      var el = document.getElementById(id);
+      var vazio = !el.value.trim();
+      var telInvalido = (id === 'telefone') && el.value.replace(/\D/g,'').length < 10;
+      var ruim = vazio || telInvalido;
+      setErr(el, ruim);
+      if (ruim && ok) { el.focus(); ok = false; }
+    });
+    if (!ok) return;
+
+    var l = [
+      'Olá! Vim pela página da Ultra Energia e quero uma análise do meu caso.',
+      '',
+      'Nome: ' + form.nome.value.trim(),
+      'WhatsApp: ' + form.telefone.value.trim(),
+      'Cidade: ' + form.cidade.value.trim(),
+      'Tipo de imóvel: ' + form.tipo.value,
+      'Conta de luz: ' + form.conta.value
+    ];
+    var u = utms();
+    if (u) l.push('', 'Origem: ' + u);
+
+    /* eventos de conversão — descomente quando os pixels estiverem instalados */
+    /* if (window.fbq)  fbq('track','Lead'); */
+    /* if (window.gtag) gtag('event','generate_lead'); */
+
+    window.open('https://wa.me/' + WHATSAPP + '?text=' + encodeURIComponent(l.join('\n')), '_blank');
+  });
+})();
+</script>
+</body>
+</html>

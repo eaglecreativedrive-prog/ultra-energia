@@ -1,0 +1,58 @@
+# LP Ultra Energia — captação de leads
+
+Página única, estática, para rodar com tráfego pago (Meta e Google).
+
+## Estrutura
+
+```
+lp-ultra-energia/
+  index.html      página inteira (HTML + CSS + JS num arquivo só)
+  assets/         logos e fotos de obra reais
+```
+
+## Como publicar
+
+Sobe a pasta inteira em qualquer hospedagem estática (Vercel, Netlify, Hostinger, um
+subdomínio tipo `solar.ultraenergia.com.br`). Não precisa de servidor nem banco.
+
+Para testar local:
+
+```
+python3 -m http.server 8931 --directory lp-ultra-energia
+```
+
+## Para onde vão os leads
+
+O formulário valida os campos e abre o WhatsApp **(48) 99144-8590** com a mensagem já
+montada: nome, telefone, cidade, tipo de imóvel, faixa da conta de luz e a origem do
+anúncio (UTM). O número fica na constante `WHATSAPP`, no `<script>` do final do arquivo.
+
+Limitação conhecida: o lead só chega se a pessoa apertar enviar no WhatsApp. Se quiser
+capturar todo mundo que preencheu, dá para acoplar um endpoint (Formspree, Google Sheets
+ou uma rota no portal-eagle) antes do `window.open` — o payload já está montado no array `l`.
+
+## Antes de subir a campanha
+
+1. **Pixels.** Colar o Meta Pixel e a tag do Google Ads no bloco marcado no `<head>`.
+2. **Evento de conversão.** Descomentar as duas linhas `fbq('track','Lead')` e
+   `gtag('event','generate_lead')` no `<script>` — sem isso o Meta não otimiza por lead.
+3. **UTM nos anúncios.** A página já lê `utm_source`, `utm_medium`, `utm_campaign`,
+   `utm_content` e `utm_term` e manda junto na mensagem. É assim que se descobre qual
+   criativo trouxe o cliente.
+4. **Trocar as fotos** quando houver obra nova (`assets/obra-01..06.jpg`, 4:3).
+
+## Regras de marca aplicadas
+
+- Paleta do briefing: índigo `#241E63` / `#1A1547`, off-white `#F2F3F7`, verde-limão
+  `#8CC63F`, verde escuro `#5F9420` sobre fundo claro.
+- Anton em caixa alta nos títulos, Inter no texto; ênfase só por cor, nunca itálico.
+- Cards arredondados flutuando sobre fundo colorido — nada de texto em fundo chapado.
+- Fotos reais de obra da equipe, sem banco de imagem e sem clichê de pôr do sol.
+- **Sem promessa de percentual de economia** em nenhum ponto da página.
+- Atendimento declarado **somente Santa Catarina**.
+- CTA fixo "Fale com nosso time comercial".
+- Privacidade: nenhuma foto ou legenda traz nome, rua ou bairro de cliente.
+
+O FAQ responde às objeções técnicas com a versão correta do representante comercial:
+telhado norte primeiro e leste/oeste como melhor saída; string em 9 de cada 10 casos;
+e a sombra afetando só a sub-string por causa dos diodos de bypass.
