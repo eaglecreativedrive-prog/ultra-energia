@@ -20,9 +20,25 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-<!-- ==== PIXELS / TAGS: cole aqui os códigos do Meta Pixel e do Google Ads ==== -->
-<!-- Meta Pixel: <script>!function(f,b,e,v,n,t,s){...}</script> -->
-<!-- Google Ads / GA4: <script async src="https://www.googletagmanager.com/gtag/js?id=..."></script> -->
+<!-- ==================== GOOGLE TAG MANAGER ====================
+     Cole o ID do contêiner (GTM-XXXXXXX) na linha marcada abaixo.
+     Enquanto estiver vazio, nada é carregado e nenhuma requisição é feita.
+     GA4, Google Ads e Meta Pixel entram depois pelo painel do GTM,
+     sem precisar mexer neste arquivo de novo. ============================ -->
+<script>
+  window.dataLayer = window.dataLayer || [];
+
+  var GTM_ID = '';   /* <<<<<< COLE AQUI o GTM-XXXXXXX */
+
+  if (GTM_ID) {
+    (function(w,d,s,l,i){
+      w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});
+      var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';
+      j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;
+      f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer',GTM_ID);
+  }
+</script>
 
 <style>
 :root{
@@ -780,8 +796,11 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between;
     var texto  = a.dataset.wa + (origem ? '\n\nOrigem: ' + origem : '');
     a.href = 'https://wa.me/' + WHATSAPP + '?text=' + encodeURIComponent(texto);
     a.addEventListener('click', function(){
-      /* if (window.fbq)  fbq('track','Lead'); */
-      /* if (window.gtag) gtag('event','generate_lead'); */
+      dataLayer.push({
+        event:   'clique_whatsapp',
+        origem:  a.dataset.origem || 'sem origem',
+        campanha: u || 'direto'
+      });
     });
   });
 
@@ -828,9 +847,16 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between;
     var origem = ['formulário', u].filter(Boolean).join(' · ');
     l.push('', 'Origem: ' + origem);
 
-    /* eventos de conversão — descomente quando os pixels estiverem instalados */
-    /* if (window.fbq)  fbq('track','Lead'); */
-    /* if (window.gtag) gtag('event','generate_lead'); */
+    /* Sem nome e sem telefone: dado pessoal não vai para ferramenta de
+       análise. Só o que serve para segmentar campanha. */
+    dataLayer.push({
+      event:       'lead_formulario',
+      origem:      'formulário',
+      tipo_imovel: form.tipo.value,
+      faixa_conta: form.conta.value,
+      cidade:      form.cidade.value.trim(),
+      campanha:    u || 'direto'
+    });
 
     window.open('https://wa.me/' + WHATSAPP + '?text=' + encodeURIComponent(l.join('\n')), '_blank');
   });

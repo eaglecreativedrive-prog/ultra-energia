@@ -38,15 +38,50 @@ Limitação conhecida: o lead só chega se a pessoa apertar enviar no WhatsApp. 
 capturar todo mundo que preencheu, dá para acoplar um endpoint (Formspree, Google Sheets
 ou uma rota no portal-eagle) antes do `window.open` — o payload já está montado no array `l`.
 
+## Rastreamento
+
+Tudo passa por um contêiner do **Google Tag Manager**. Para ativar, basta colar o ID na
+constante `GTM_ID`, no bloco marcado no `<head>`:
+
+```js
+var GTM_ID = 'GTM-XXXXXXX';
+```
+
+Enquanto ela estiver vazia, nada é carregado — zero requisição externa e zero cookie.
+Depois de ativada, GA4, Google Ads e Meta Pixel entram pelo painel do GTM, **sem precisar
+mexer neste arquivo de novo**.
+
+### Eventos que a página já dispara
+
+| Evento | Quando | Parâmetros |
+|---|---|---|
+| `clique_whatsapp` | qualquer um dos 15 botões | `origem`, `campanha` |
+| `lead_formulario` | envio do formulário | `origem`, `tipo_imovel`, `faixa_conta`, `cidade`, `campanha` |
+
+`origem` diz de qual ponto da página a pessoa saiu (topo, faixa de R$ 800, seção das
+obras, FAQ...) e `campanha` traz as UTMs. É com esses dois que se descobre qual criativo
+e qual trecho da página convertem.
+
+**Nome e telefone não vão para a dataLayer.** Dado pessoal não entra em ferramenta de
+análise; só o que serve para segmentar campanha.
+
+No GTM, criar um acionador de **evento personalizado** para cada um desses nomes e ligar
+às tags de conversão do GA4, do Google Ads e do Meta.
+
+### Limites conhecidos
+
+- **Sem server-side tagging** — exige servidor, que o GitHub Pages não tem. Para esta LP
+  não faz falta.
+- **A conversão medida é o clique, não a venda.** Como o lead vai para o WhatsApp, não há
+  página de obrigado. O número no painel do Ads sempre será maior que o de negócios
+  fechados; o cliente precisa saber disso.
+
 ## Antes de subir a campanha
 
-1. **Pixels.** Colar o Meta Pixel e a tag do Google Ads no bloco marcado no `<head>`.
-2. **Evento de conversão.** Descomentar as duas linhas `fbq('track','Lead')` e
-   `gtag('event','generate_lead')` no `<script>` — sem isso o Meta não otimiza por lead.
-3. **UTM nos anúncios.** A página já lê `utm_source`, `utm_medium`, `utm_campaign`,
-   `utm_content` e `utm_term` e manda junto na mensagem. É assim que se descobre qual
-   criativo trouxe o cliente.
-4. **Trocar as fotos** quando houver obra nova (`assets/obra-01..06.jpg`, 4:3).
+1. **Colar o `GTM_ID`** e configurar as tags no painel do GTM.
+2. **UTM nos anúncios.** A página já lê `utm_source`, `utm_medium`, `utm_campaign`,
+   `utm_content` e `utm_term`, manda junto na mensagem do WhatsApp e no evento.
+3. **Trocar as fotos** quando houver obra nova (`assets/obra-01..06.jpg`, 4:3).
 
 ## Regras de marca aplicadas
 
