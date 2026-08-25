@@ -74,3 +74,17 @@ de carência. Os valores estão escritos direto no HTML, na seção `INVESTIMENT
 aqui e no criativo ao mesmo tempo.** A ressalva "valores sujeitos a análise de crédito"
 e a frase sobre o dimensionamento real não podem sair — são o que separa a prévia de
 uma promessa de preço.
+
+## Onde ficam os pontos de clique
+
+São 15 destinos, todos no mesmo número, cada um com mensagem e `data-origem`
+próprios. A linha `Origem:` que chega no WhatsApp diz de qual deles a pessoa veio —
+use isso depois de duas semanas de campanha para cortar os que não convertem.
+
+- topo, barra fixa do celular e ícone ao lado dela
+- uma por faixa de preço (R$ 500, R$ 800 e R$ 1.000)
+- uma ao fim de cada seção: diferenciais, problemas, processo, frentes, obras e FAQ
+- rodapé, contato do rodapé e o botão flutuante de WhatsApp
+
+O botão flutuante só aparece no desktop, depois que o hero sai da tela. No celular ele
+sairia por cima da barra fixa, então lá o ícone fica dentro da própria barra.
