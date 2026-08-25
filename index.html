@@ -11,7 +11,10 @@
 <meta property="og:description" content="9 anos instalando com mão de obra própria em Santa Catarina. Orçamento gratuito, sem compromisso.">
 <meta property="og:image" content="assets/hero.jpg">
 <meta property="og:locale" content="pt_BR">
-<link rel="icon" href="assets/logo.png">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
+<link rel="icon" type="image/png" sizes="64x64" href="assets/favicon-64.png">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<meta name="theme-color" content="#241E63">
 <script>document.documentElement.classList.add('js')</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -64,8 +67,13 @@ p{margin:0 0 16px}
 /* ---------- header ---------- */
 header{position:sticky;top:0;z-index:50;background:rgba(26,21,71,.92);backdrop-filter:blur(12px);
   border-bottom:1px solid rgba(255,255,255,.10)}
-.nav{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-top:14px;padding-bottom:14px}
-.nav img{height:34px;width:auto}
+.nav{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-top:12px;padding-bottom:12px}
+/* a marca reserva um espaco pequeno na barra e a imagem transborda para baixo,
+   entao o cabecalho continua com a mesma altura */
+.nav .marca{position:relative;flex:0 0 auto;
+  width:clamp(76px,9.2vw,134px);height:clamp(30px,3vw,38px)}
+.nav .marca img{position:absolute;left:0;top:-4px;width:100%;height:auto;max-width:none;
+  filter:drop-shadow(0 10px 22px rgba(6,4,30,.45))}
 .nav-meta{display:none;color:#fff;font-size:13.5px;opacity:.85}
 @media(min-width:860px){.nav-meta{display:block}}
 
@@ -276,7 +284,7 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between;
 
 <header>
   <div class="wrap nav">
-    <img src="assets/logo-white.png" alt="Ultra Energia">
+    <a class="marca" href="#topo" aria-label="Ultra Energia"><img src="assets/logo-white.png" alt="Ultra Energia"></a>
     <span class="nav-meta">Santa Catarina · Equipe própria · 9 anos</span>
     <a data-wa="Olá! Vim pelo site da Ultra Energia e quero pedir um orçamento gratuito." data-origem="botão do topo" href="https://wa.me/5548992197177?text=Ol%C3%A1%21%20Vim%20pelo%20site%20da%20Ultra%20Energia%20e%20quero%20pedir%20um%20or%C3%A7amento%20gratuito." target="_blank" rel="noopener" class="btn btn-primary" style="padding:13px 20px;font-size:15px">Pedir orçamento gratuito</a>
   </div>
