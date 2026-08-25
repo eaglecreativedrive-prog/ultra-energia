@@ -23,9 +23,16 @@ python3 -m http.server 8931 --directory lp-ultra-energia
 
 ## Para onde vão os leads
 
-O formulário valida os campos e abre o WhatsApp **(48) 99144-8590** com a mensagem já
-montada: nome, telefone, cidade, tipo de imóvel, faixa da conta de luz e a origem do
-anúncio (UTM). O número fica na constante `WHATSAPP`, no `<script>` do final do arquivo.
+Tudo vai para o WhatsApp **(48) 99219-7177**, na constante `WHATSAPP` do `<script>` final.
+
+- **Formulário:** valida os campos e monta a mensagem com nome, telefone, cidade, tipo
+  de imóvel e faixa da conta de luz.
+- **Botões de CTA:** vão direto para o WhatsApp com uma mensagem curta já escrita,
+  para quem não quer preencher nada. A mensagem fica no atributo `data-wa` de cada
+  botão e o ponto da página no `data-origem`.
+
+Toda mensagem leva junto a linha `Origem:`, com o ponto de clique e a campanha (UTM) —
+é assim que se descobre qual botão e qual anúncio trouxeram o cliente.
 
 Limitação conhecida: o lead só chega se a pessoa apertar enviar no WhatsApp. Se quiser
 capturar todo mundo que preencheu, dá para acoplar um endpoint (Formspree, Google Sheets
