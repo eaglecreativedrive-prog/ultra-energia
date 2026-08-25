@@ -63,3 +63,14 @@ ou uma rota no portal-eagle) antes do `window.open` — o payload já está mont
 O FAQ responde às objeções técnicas com a versão correta do representante comercial:
 telhado norte primeiro e leste/oeste como melhor saída; string em 9 de cada 10 casos;
 e a sombra afetando só a sub-string por causa dos diodos de bypass.
+
+## Prévia de investimento
+
+A seção de preços replica o criativo do anúncio: três faixas de conta de luz (R$ 500,
+R$ 800 e R$ 1.000), o número de painéis e a parcela inicial de cada uma, mais os 90 dias
+de carência. Os valores estão escritos direto no HTML, na seção `INVESTIMENTO`.
+
+**Sempre que a tabela do financiamento mudar, esses números precisam ser atualizados
+aqui e no criativo ao mesmo tempo.** A ressalva "valores sujeitos a análise de crédito"
+e a frase sobre o dimensionamento real não podem sair — são o que separa a prévia de
+uma promessa de preço.

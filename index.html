@@ -4,11 +4,11 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Ultra Energia — Energia solar com mão de obra própria em Santa Catarina</title>
-<meta name="description" content="Projeto, instalação e homologação de energia solar em Santa Catarina. Equipe própria, 9 anos de mercado e pós-venda que atende depois da obra. Peça sua análise gratuita.">
+<meta name="description" content="Projeto, instalação e homologação de energia solar em Santa Catarina. Equipe própria, 9 anos de mercado e pós-venda que atende depois da obra. Peça seu orçamento gratuito.">
 <meta name="robots" content="index,follow">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Ultra Energia — energia solar com equipe própria em SC">
-<meta property="og:description" content="9 anos instalando com mão de obra própria em Santa Catarina. Análise gratuita do seu telhado, sem compromisso.">
+<meta property="og:description" content="9 anos instalando com mão de obra própria em Santa Catarina. Orçamento gratuito, sem compromisso.">
 <meta property="og:image" content="assets/hero.jpg">
 <meta property="og:locale" content="pt_BR">
 <link rel="icon" href="assets/logo.png">
@@ -147,6 +147,30 @@ section{padding:clamp(56px,8vw,104px) 0}
 .card.accent{background:var(--lime);border-color:var(--lime)}
 .card.accent h3,.card.accent p,.card.accent .idx{color:#14260A}
 
+/* ---------- planos ---------- */
+.planos{display:grid;gap:18px;grid-template-columns:1fr}
+@media(min-width:760px){.planos{grid-template-columns:repeat(3,1fr)}}
+.plano{background:#fff;border:1px solid #E4E5EE;border-radius:var(--radius);
+  padding:clamp(24px,2.6vw,30px);display:flex;flex-direction:column;text-align:center}
+.plano .cap{font-size:12px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;color:#6A6A85}
+.plano .conta{font-family:Anton,sans-serif;font-size:clamp(38px,4.6vw,52px);line-height:1;
+  color:var(--indigo);margin:10px 0 4px}
+.plano .conta small{font-size:.45em;vertical-align:.55em;margin-right:2px}
+.plano .conta sup{font-size:.42em;vertical-align:.9em}
+.plano .paineis{font-family:Anton,sans-serif;font-size:19px;color:var(--lime-dark);
+  letter-spacing:.04em;margin:20px 0 0}
+.plano .divisor{height:1px;background:#E4E5EE;margin:20px 0}
+.plano .parcela{background:var(--lime);border-radius:16px;padding:16px 12px;margin-top:auto}
+.plano .parcela .cap{color:#2C4A0F}
+.plano .parcela .v{font-family:Anton,sans-serif;font-size:clamp(30px,3.6vw,40px);line-height:1;
+  color:#14260A;margin-top:6px}
+.plano .parcela .v small{font-size:.45em;vertical-align:.55em;margin-right:2px}
+.plano .parcela .v sup{font-size:.42em;vertical-align:.9em}
+.prazo{display:flex;align-items:center;justify-content:center;gap:12px;flex-wrap:wrap;
+  text-align:center;margin-top:26px}
+.prazo .anton{font-size:clamp(22px,3vw,32px);color:var(--indigo)}
+.ressalva{font-size:13px;color:#6A6A85;line-height:1.5;margin:18px auto 0;max-width:62ch;text-align:center}
+
 /* ---------- steps ---------- */
 .steps{display:grid;gap:16px;grid-template-columns:1fr;counter-reset:s}
 @media(min-width:760px){.steps{grid-template-columns:repeat(2,1fr)}}
@@ -202,7 +226,7 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between;
   <div class="wrap nav">
     <img src="assets/logo-white.png" alt="Ultra Energia">
     <span class="nav-meta">Santa Catarina · Equipe própria · 9 anos</span>
-    <a data-wa="Olá! Vim pelo site da Ultra Energia e quero pedir uma análise gratuita do meu telhado." data-origem="botão do topo" href="https://wa.me/5548992197177?text=Ol%C3%A1%21%20Vim%20pelo%20site%20da%20Ultra%20Energia%20e%20quero%20pedir%20uma%20an%C3%A1lise%20gratuita%20do%20meu%20telhado." target="_blank" rel="noopener" class="btn btn-primary" style="padding:13px 20px;font-size:15px">Pedir análise gratuita</a>
+    <a data-wa="Olá! Vim pelo site da Ultra Energia e quero pedir um orçamento gratuito." data-origem="botão do topo" href="https://wa.me/5548992197177?text=Ol%C3%A1%21%20Vim%20pelo%20site%20da%20Ultra%20Energia%20e%20quero%20pedir%20um%20or%C3%A7amento%20gratuito." target="_blank" rel="noopener" class="btn btn-primary" style="padding:13px 20px;font-size:15px">Pedir orçamento gratuito</a>
   </div>
 </header>
 
@@ -225,8 +249,8 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between;
 
       <!-- ============ FORM ============ -->
       <div class="card-form" id="form">
-        <h3>Análise gratuita do seu telhado</h3>
-        <p class="sub">Preencha e nosso time comercial retorna com o dimensionamento e o orçamento do seu caso. Sem compromisso.</p>
+        <h3>Orçamento gratuito</h3>
+        <p class="sub">Preencha e nosso time comercial entra em contato para entender o local e montar o orçamento do seu caso. Sem compromisso.</p>
         <form id="lead-form" novalidate>
           <div class="field">
             <label for="nome">Nome</label>
@@ -286,6 +310,65 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between;
     <div class="stat"><div class="n">2</div><p>frentes: residencial e empresarial</p></div>
   </div>
 </div>
+
+<!-- ================= INVESTIMENTO ================= -->
+<section>
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="label">Prévia de investimento</p>
+      <h2>Quanto custa, <span class="hl-dark">a partir da sua conta de luz</span></h2>
+      <p class="lead">Uma referência para você já ter ordem de grandeza antes de falar com a gente. O número de painéis e a parcela final saem depois da leitura da sua conta e do seu telhado.</p>
+    </div>
+
+    <div class="planos">
+      <div class="plano">
+        <p class="cap">Para quem paga em média</p>
+        <p class="conta"><small>R$</small>500<sup>,00</sup></p>
+        <p class="cap">de conta de luz</p>
+        <p class="paineis">08 PAINÉIS</p>
+        <div class="divisor"></div>
+        <div class="parcela">
+          <p class="cap">Parcelas a partir de</p>
+          <p class="v"><small>R$</small>389<sup>,99</sup></p>
+        </div>
+      </div>
+      <div class="plano">
+        <p class="cap">Para quem paga em média</p>
+        <p class="conta"><small>R$</small>800<sup>,00</sup></p>
+        <p class="cap">de conta de luz</p>
+        <p class="paineis">14 PAINÉIS</p>
+        <div class="divisor"></div>
+        <div class="parcela">
+          <p class="cap">Parcelas a partir de</p>
+          <p class="v"><small>R$</small>532<sup>,99</sup></p>
+        </div>
+      </div>
+      <div class="plano">
+        <p class="cap">Para quem paga em média</p>
+        <p class="conta"><small>R$</small>1.000<sup>,00</sup></p>
+        <p class="cap">de conta de luz</p>
+        <p class="paineis">21 PAINÉIS</p>
+        <div class="divisor"></div>
+        <div class="parcela">
+          <p class="cap">Parcelas a partir de</p>
+          <p class="v"><small>R$</small>745<sup>,99</sup></p>
+        </div>
+      </div>
+    </div>
+
+    <div class="prazo">
+      <span class="anton">90 dias para <span class="hl-dark">começar a pagar</span></span>
+    </div>
+    <p class="ressalva">Valores sujeitos a análise de crédito. As parcelas acima são um ponto de partida para conta de luz na média indicada — o dimensionamento real do seu projeto define o número de painéis e o valor final.</p>
+
+    <div style="text-align:center;margin-top:30px">
+      <a class="btn btn-primary"
+         data-wa="Olá! Vim pelo site da Ultra Energia e quero simular o investimento para a minha conta de luz."
+         data-origem="botão do investimento"
+         href="#" target="_blank" rel="noopener">Simular o meu caso</a>
+    </div>
+  </div>
+</section>
 
 <!-- ================= DIFERENCIAIS ================= -->
 <section class="dark" style="padding-top:clamp(48px,6vw,84px)">
@@ -381,7 +464,7 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between;
         <p>Equipe própria executa a obra e a Ultra conduz o processo junto à concessionária até o sistema estar ligado e medindo.</p>
       </div>
     </div>
-    <div style="margin-top:36px"><a data-wa="Olá! Vim pelo site da Ultra Energia. Vi como funciona o processo e quero pedir a análise gratuita do meu caso." data-origem="botão do processo" href="https://wa.me/5548992197177?text=Ol%C3%A1%21%20Vim%20pelo%20site%20da%20Ultra%20Energia.%20Vi%20como%20funciona%20o%20processo%20e%20quero%20pedir%20a%20an%C3%A1lise%20gratuita%20do%20meu%20caso." target="_blank" rel="noopener" class="btn btn-primary">Quero minha análise gratuita</a></div>
+    <div style="margin-top:36px"><a data-wa="Olá! Vim pelo site da Ultra Energia. Vi como funciona o processo e quero pedir um orçamento do meu caso." data-origem="botão do processo" href="https://wa.me/5548992197177?text=Ol%C3%A1%21%20Vim%20pelo%20site%20da%20Ultra%20Energia.%20Vi%20como%20funciona%20o%20processo%20e%20quero%20pedir%20um%20or%C3%A7amento%20do%20meu%20caso." target="_blank" rel="noopener" class="btn btn-primary">Quero meu orçamento gratuito</a></div>
   </div>
 </section>
 
@@ -472,7 +555,7 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between;
   <div class="wrap">
     <img src="assets/logo-white.png" alt="Ultra Energia" class="logo">
     <h2>Manda a sua conta de luz. <span class="hl">A gente lê o telhado</span></h2>
-    <p class="lead" style="opacity:.85;margin:0 auto;max-width:52ch">Análise e orçamento sem custo e sem compromisso. Se o seu caso não fechar conta, a gente diz isso na proposta.</p>
+    <p class="lead" style="opacity:.85;margin:0 auto;max-width:52ch">Orçamento sem custo e sem compromisso. Nosso time entra em contato para entender o local antes de fechar qualquer número.</p>
     <div class="contacts">
       <a class="pill ghost" href="https://wa.me/5548992197177?text=Ol%C3%A1%21%20Vim%20pelo%20site%20da%20Ultra%20Energia%20e%20quero%20falar%20com%20o%20time%20comercial%20sobre%20energia%20solar." target="_blank" rel="noopener"
          data-wa="Olá! Vim pelo site da Ultra Energia e quero falar com o time comercial sobre energia solar."
@@ -491,7 +574,7 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between;
   </div>
 </footer>
 
-<div class="sticky-cta"><a data-wa="Olá! Vim pelo site da Ultra Energia e quero pedir uma análise gratuita do meu telhado." data-origem="barra fixa do celular" href="https://wa.me/5548992197177?text=Ol%C3%A1%21%20Vim%20pelo%20site%20da%20Ultra%20Energia%20e%20quero%20pedir%20uma%20an%C3%A1lise%20gratuita%20do%20meu%20telhado." target="_blank" rel="noopener" class="btn btn-primary btn-block">Pedir análise gratuita</a></div>
+<div class="sticky-cta"><a data-wa="Olá! Vim pelo site da Ultra Energia e quero pedir um orçamento gratuito." data-origem="barra fixa do celular" href="https://wa.me/5548992197177?text=Ol%C3%A1%21%20Vim%20pelo%20site%20da%20Ultra%20Energia%20e%20quero%20pedir%20um%20or%C3%A7amento%20gratuito." target="_blank" rel="noopener" class="btn btn-primary btn-block">Pedir orçamento gratuito</a></div>
 
 <script>
 (function(){
@@ -564,7 +647,7 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between;
     if (!ok) return;
 
     var l = [
-      'Olá! Vim pela página da Ultra Energia e quero uma análise do meu caso.',
+      'Olá! Vim pelo site da Ultra Energia e quero um orçamento gratuito.',
       '',
       'Nome: ' + form.nome.value.trim(),
       'WhatsApp: ' + form.telefone.value.trim(),
