@@ -137,6 +137,7 @@ header{position:sticky;top:0;z-index:50;background:rgba(26,21,71,.92);backdrop-f
   .stat p{margin-left:auto;margin-right:auto}
 }
 .stat .n{font-family:Anton,sans-serif;font-size:clamp(50px,5.2vw,60px);line-height:1.02;color:var(--lime);
+  text-transform:uppercase;letter-spacing:.01em;
   font-variant-numeric:tabular-nums;font-feature-settings:"tnum" 1}
 .stat .n .u{font-size:.62em}
 .stat p{max-width:26ch}
@@ -374,7 +375,7 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between;
   <div class="wrap">
     <div class="stat"><div class="n"><span data-conta="9">9</span> <span class="u">anos</span></div><p>de mercado em energia solar</p></div>
     <div class="stat"><div class="n"><span data-conta="100" data-sufixo="%">100%</span></div><p>instalação com equipe própria, sem terceirizar</p></div>
-    <div class="stat"><div class="n">mais de mil</div><p>projetos já homologados</p></div>
+    <div class="stat"><div class="n"><span data-conta="1000" data-prefixo="+">+1000</span> <span class="u">projetos</span></div><p>já homologados</p></div>
   </div>
 </div>
 
@@ -646,7 +647,7 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between;
 <section class="final" id="contato">
   <div class="wrap">
     <img src="assets/logo-white.png" alt="Ultra Energia" class="logo">
-    <h2>Manda a sua conta de luz. <span class="hl">A gente lê o telhado</span></h2>
+    <h2>Manda a sua conta de luz. <span class="hl">A gente calcula tudo para você</span></h2>
     <p class="lead" style="opacity:.85;margin:0 auto;max-width:52ch">Orçamento sem custo e sem compromisso. Nosso time entra em contato para entender o local antes de fechar qualquer número.</p>
     <div class="contacts">
       <a class="pill ghost" href="https://wa.me/5548992197177?text=Ol%C3%A1%21%20Vim%20pelo%20site%20da%20Ultra%20Energia%20e%20quero%20falar%20com%20o%20time%20comercial%20sobre%20energia%20solar." target="_blank" rel="noopener"
@@ -741,7 +742,7 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between;
       var prefixo = el.dataset.prefixo || '';
       var dur     = 1100;
       function escreve(v){
-        el.textContent = prefixo + v.toLocaleString('pt-BR') + sufixo;
+        el.textContent = prefixo + v + sufixo;
       }
       escreve(0);
       setTimeout(function(){
