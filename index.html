@@ -131,8 +131,10 @@ header{position:sticky;top:0;z-index:50;background:rgba(26,21,71,.92);backdrop-f
 .strip .wrap{display:grid;gap:clamp(18px,3vw,28px);grid-template-columns:1fr;
   padding-top:34px;padding-bottom:34px}
 @media(min-width:560px){.strip .wrap{grid-template-columns:repeat(3,1fr)}}
-.stat .n{font-family:Anton,sans-serif;font-size:clamp(30px,4vw,44px);line-height:1;color:var(--lime);
+.stat .n{font-family:Anton,sans-serif;font-size:clamp(38px,5.2vw,60px);line-height:1.02;color:var(--lime);
   font-variant-numeric:tabular-nums;font-feature-settings:"tnum" 1}
+.stat .n .u{font-size:.62em}
+.stat p{max-width:26ch}
 .js .strip .stat{opacity:0;transform:translateY(10px);
   transition:opacity .5s ease, transform .5s cubic-bezier(.22,1,.36,1)}
 .js .strip.on .stat{opacity:1;transform:none}
@@ -363,9 +365,9 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between;
 <!-- ================= STRIP ================= -->
 <div class="strip">
   <div class="wrap">
-    <div class="stat"><div class="n" data-conta="9">9</div><p>anos de mercado em energia solar</p></div>
-    <div class="stat"><div class="n" data-conta="100" data-sufixo="%">100%</div><p>instalação com equipe própria, sem terceirizar</p></div>
-    <div class="stat"><div class="n" data-conta="1000" data-prefixo="+">+1.000</div><p>projetos já homologados</p></div>
+    <div class="stat"><div class="n"><span data-conta="9">9</span> <span class="u">anos</span></div><p>de mercado em energia solar</p></div>
+    <div class="stat"><div class="n"><span data-conta="100" data-sufixo="%">100%</span></div><p>instalação com equipe própria, sem terceirizar</p></div>
+    <div class="stat"><div class="n">mais de mil</div><p>projetos já homologados</p></div>
   </div>
 </div>
 
