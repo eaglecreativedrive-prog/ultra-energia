@@ -12,6 +12,7 @@
 <meta property="og:image" content="assets/hero.jpg">
 <meta property="og:locale" content="pt_BR">
 <link rel="icon" href="assets/logo.png">
+<script>document.documentElement.classList.add('js')</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -122,7 +123,11 @@ header{position:sticky;top:0;z-index:50;background:rgba(26,21,71,.92);backdrop-f
 .strip .wrap{display:grid;gap:clamp(18px,3vw,28px);grid-template-columns:repeat(2,1fr);
   padding-top:34px;padding-bottom:34px}
 @media(min-width:820px){.strip .wrap{grid-template-columns:repeat(4,1fr)}}
-.stat .n{font-family:Anton,sans-serif;font-size:clamp(30px,4vw,44px);line-height:1;color:var(--lime)}
+.stat .n{font-family:Anton,sans-serif;font-size:clamp(30px,4vw,44px);line-height:1;color:var(--lime);
+  font-variant-numeric:tabular-nums;font-feature-settings:"tnum" 1}
+.js .strip .stat{opacity:0;transform:translateY(10px);
+  transition:opacity .5s ease, transform .5s cubic-bezier(.22,1,.36,1)}
+.js .strip.on .stat{opacity:1;transform:none}
 .stat p{font-size:14px;opacity:.85;margin:8px 0 0;line-height:1.35}
 
 /* ---------- sections ---------- */
@@ -304,10 +309,10 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between;
 <!-- ================= STRIP ================= -->
 <div class="strip">
   <div class="wrap">
-    <div class="stat"><div class="n">9</div><p>anos de mercado em energia solar</p></div>
-    <div class="stat"><div class="n">100%</div><p>instalação com equipe própria, sem terceirizar</p></div>
+    <div class="stat"><div class="n" data-conta="9">9</div><p>anos de mercado em energia solar</p></div>
+    <div class="stat"><div class="n" data-conta="100" data-sufixo="%">100%</div><p>instalação com equipe própria, sem terceirizar</p></div>
     <div class="stat"><div class="n">SC</div><p>atendimento em Santa Catarina</p></div>
-    <div class="stat"><div class="n">2</div><p>frentes: residencial e empresarial</p></div>
+    <div class="stat"><div class="n" data-conta="2">2</div><p>frentes: residencial e empresarial</p></div>
   </div>
 </div>
 
@@ -608,6 +613,44 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between;
       sticky.classList.toggle('hide', en[0].isIntersecting);
     }, {threshold:.15}).observe(document.getElementById('form'));
   }
+
+  /* --- números da barra contando ao entrar na tela ---------------------
+     Dispara uma vez só, quando a faixa aparece. Quem pediu menos
+     movimento no sistema vê o valor final direto, sem contagem. */
+  (function(){
+    var faixa = document.querySelector('.strip');
+    if (!faixa) return;
+    var calmo = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    function conta(el, atraso){
+      var alvo   = parseInt(el.dataset.conta, 10);
+      var sufixo = el.dataset.sufixo || '';
+      var dur    = 1100;
+      el.textContent = '0' + sufixo;
+      setTimeout(function(){
+        var t0 = performance.now();
+        (function passo(agora){
+          var t = Math.min((agora - t0) / dur, 1);
+          var e = 1 - Math.pow(1 - t, 3);           /* desacelera no fim */
+          el.textContent = Math.round(alvo * e) + sufixo;
+          if (t < 1) requestAnimationFrame(passo);
+        })(t0);
+      }, atraso);
+    }
+
+    function dispara(){
+      faixa.classList.add('on');
+      if (calmo) return;
+      faixa.querySelectorAll('[data-conta]').forEach(function(el, i){
+        conta(el, 120 + i * 90);
+      });
+    }
+
+    if (!('IntersectionObserver' in window)) { dispara(); return; }
+    new IntersectionObserver(function(entradas, obs){
+      if (entradas[0].isIntersecting) { dispara(); obs.disconnect(); }
+    }, {threshold:.4}).observe(faixa);
+  })();
 
   /* --- botões que vão direto para o WhatsApp ---------------------------
      Cada um leva a própria mensagem (data-wa) e o ponto da página onde
