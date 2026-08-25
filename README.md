@@ -86,5 +86,6 @@ use isso depois de duas semanas de campanha para cortar os que não convertem.
 - uma ao fim de cada seção: diferenciais, problemas, processo, frentes, obras e FAQ
 - rodapé, contato do rodapé e o botão flutuante de WhatsApp
 
-O botão flutuante só aparece no desktop, depois que o hero sai da tela. No celular ele
-sairia por cima da barra fixa, então lá o ícone fica dentro da própria barra.
+O botão flutuante de WhatsApp só aparece no desktop, depois que o hero sai da tela. No
+celular a barra fixa tem um botão único ocupando a largura inteira — os dois destinos
+eram o mesmo WhatsApp, e dividir a barra só reduzia a área de toque.
