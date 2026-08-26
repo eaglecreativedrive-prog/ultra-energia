@@ -214,7 +214,7 @@ section{padding:clamp(56px,8vw,104px) 0}
   text-align:center;margin-top:34px}
 .prazo .anton{font-size:clamp(36px,5.6vw,58px);line-height:1.06;color:var(--indigo);
   display:inline-block;transform-origin:center;
-  animation:pulsa 2.6s ease-in-out infinite;will-change:transform}
+  animation:pulsa 3.4s ease-in-out infinite;will-change:transform}
 .prazo .anton .l{display:block}
 @keyframes pulsa{0%,100%{transform:scale(1)}50%{transform:scale(1.055)}}
 .ressalva{font-size:13px;color:#6A6A85;line-height:1.5;margin:18px auto 0;max-width:62ch;text-align:center}
@@ -224,17 +224,17 @@ section{padding:clamp(56px,8vw,104px) 0}
    nada some. Quem pediu menos movimento no sistema recebe o conteudo
    direto, porque a regra global desliga as transicoes. */
 .js .rv,
-.js .rv-g > *{opacity:0;transform:translateY(14px);
-  transition:opacity .55s ease, transform .55s cubic-bezier(.22,1,.36,1)}
+.js .rv-g > *{opacity:0;transform:translateY(22px);
+  transition:opacity .9s ease, transform .9s cubic-bezier(.22,1,.36,1)}
 .js .rv.on,
 .js .rv-g.on > *{opacity:1;transform:none}
 .js .rv-g.on > *:nth-child(1){transition-delay:0ms}
-.js .rv-g.on > *:nth-child(2){transition-delay:90ms}
-.js .rv-g.on > *:nth-child(3){transition-delay:180ms}
-.js .rv-g.on > *:nth-child(4){transition-delay:270ms}
-.js .rv-g.on > *:nth-child(5){transition-delay:360ms}
-.js .rv-g.on > *:nth-child(6){transition-delay:450ms}
-.js .rv-g.on > *:nth-child(7){transition-delay:540ms}
+.js .rv-g.on > *:nth-child(2){transition-delay:130ms}
+.js .rv-g.on > *:nth-child(3){transition-delay:260ms}
+.js .rv-g.on > *:nth-child(4){transition-delay:390ms}
+.js .rv-g.on > *:nth-child(5){transition-delay:520ms}
+.js .rv-g.on > *:nth-child(6){transition-delay:650ms}
+.js .rv-g.on > *:nth-child(7){transition-delay:780ms}
 
 /* ---------- steps ---------- */
 .steps{display:grid;gap:16px;grid-template-columns:1fr;counter-reset:s}
@@ -745,7 +745,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         e.target.classList.add('on');
         obs.unobserve(e.target);
       });
-    }, {threshold:.12, rootMargin:'0px 0px -8% 0px'});
+    }, {threshold:.05, rootMargin:'0px 0px -2% 0px'});
     alvos.forEach(function(el){ obs.observe(el); });
   })();
 
@@ -761,7 +761,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       var alvo    = parseInt(el.dataset.conta, 10);
       var sufixo  = el.dataset.sufixo  || '';
       var prefixo = el.dataset.prefixo || '';
-      var dur     = 1100;
+      var dur     = 1700;
       function escreve(v){
         el.textContent = prefixo + v + sufixo;
       }
