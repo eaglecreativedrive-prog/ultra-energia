@@ -57,6 +57,7 @@ mexer neste arquivo de novo**.
 |---|---|---|
 | `clique_whatsapp` | qualquer um dos 15 botões | `origem`, `campanha` |
 | `lead_formulario` | envio do formulário | `origem`, `tipo_imovel`, `faixa_conta`, `cidade`, `campanha` |
+| `clique_instagram` | ícone do cabeçalho ou do rodapé | `origem`, `campanha` |
 
 `origem` diz de qual ponto da página a pessoa saiu (topo, faixa de R$ 800, seção das
 obras, FAQ...) e `campanha` traz as UTMs. É com esses dois que se descobre qual criativo
@@ -120,6 +121,10 @@ use isso depois de duas semanas de campanha para cortar os que não convertem.
 - uma por faixa de preço (R$ 500, R$ 800 e R$ 1.000)
 - uma ao fim de cada seção: diferenciais, problemas, processo, frentes, obras e FAQ
 - rodapé, contato do rodapé e o botão flutuante de WhatsApp
+
+O Instagram fica em dois pontos, cabeçalho e rodapé, apontando para
+**instagram.com/ultraenergiasolar.sc** — o perfil confirmado pelo cliente, que difere do
+`@ultraenergiasc` registrado no briefing antigo.
 
 O botão flutuante de WhatsApp só aparece no desktop, depois que o hero sai da tela. No
 celular a barra fixa tem um botão único ocupando a largura inteira — os dois destinos

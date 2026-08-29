@@ -290,6 +290,18 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between;
 .sticky-cta .btn{width:100%;padding:20px 24px;font-size:17px}
 @media(max-width:979px){.sticky-cta{display:block}body{padding-bottom:92px}}
 
+/* ---------- instagram ---------- */
+.ig-topo{display:inline-flex;align-items:center;justify-content:center;flex:0 0 auto;
+  width:42px;height:42px;border-radius:13px;color:#fff;
+  background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.18);
+  transition:background .2s ease, color .2s ease, border-color .2s ease, transform .2s ease}
+.ig-topo:hover{background:var(--lime);border-color:var(--lime);color:#14260A;transform:translateY(-2px)}
+.ig-topo svg{width:22px;height:22px;display:block}
+.pill svg{width:17px;height:17px;flex:0 0 auto}
+a.pill.ghost{transition:background .2s ease, border-color .2s ease, color .2s ease}
+a.pill.ghost:hover{background:var(--lime);border-color:var(--lime);color:#14260A}
+@media(max-width:479px){.ig-topo{width:38px;height:38px;border-radius:11px}.ig-topo svg{width:20px;height:20px}}
+
 /* ---------- whatsapp flutuante ---------- */
 .wa{display:inline-flex;align-items:center;justify-content:center;flex:0 0 auto;
   width:56px;height:56px;border-radius:50%;background:var(--lime);color:#14260A;
@@ -317,6 +329,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <div class="wrap nav">
     <a class="marca" href="#topo" aria-label="Ultra Energia"><img src="assets/logo-white.png" alt="Ultra Energia"></a>
     <span class="nav-meta">Santa Catarina · Equipe própria · 9 anos</span>
+    <a class="ig-topo" href="https://www.instagram.com/ultraenergiasolar.sc/" target="_blank" rel="noopener"
+       data-social="instagram" data-origem="cabeçalho" aria-label="Instagram da Ultra Energia"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" aria-hidden="true"><rect x="2.6" y="2.6" width="18.8" height="18.8" rx="5.4"/><circle cx="12" cy="12" r="4.4"/><circle cx="17.4" cy="6.6" r="1.15" fill="currentColor" stroke="none"/></svg></a>
     <a data-wa="Olá! Vim pelo site da Ultra Energia e quero pedir um orçamento gratuito." data-origem="botão do topo" href="https://wa.me/5548992197177?text=Ol%C3%A1%21%20Vim%20pelo%20site%20da%20Ultra%20Energia%20e%20quero%20pedir%20um%20or%C3%A7amento%20gratuito." target="_blank" rel="noopener" class="btn btn-primary" style="padding:13px 20px;font-size:15px">Pedir orçamento gratuito</a>
   </div>
 </header>
@@ -674,7 +688,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <a class="pill ghost" href="https://wa.me/5548992197177?text=Ol%C3%A1%21%20Vim%20pelo%20site%20da%20Ultra%20Energia%20e%20quero%20falar%20com%20o%20time%20comercial%20sobre%20energia%20solar." target="_blank" rel="noopener"
          data-wa="Olá! Vim pelo site da Ultra Energia e quero falar com o time comercial sobre energia solar."
          data-origem="contato do rodapé">WhatsApp (48) 99219-7177</a>
-      <span class="pill ghost">@ultraenergiasc</span>
+      <a class="pill ghost" href="https://www.instagram.com/ultraenergiasolar.sc/" target="_blank" rel="noopener"
+         data-social="instagram" data-origem="rodapé"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" aria-hidden="true"><rect x="2.6" y="2.6" width="18.8" height="18.8" rx="5.4"/><circle cx="12" cy="12" r="4.4"/><circle cx="17.4" cy="6.6" r="1.15" fill="currentColor" stroke="none"/></svg> @ultraenergiasolar.sc</a>
       <span class="pill ghost">Sede em Tijucas · Todo o estado de SC</span>
     </div>
     <a data-wa="Olá! Vim pelo site da Ultra Energia e quero falar com o time comercial sobre energia solar." data-origem="botão do final" href="https://wa.me/5548992197177?text=Ol%C3%A1%21%20Vim%20pelo%20site%20da%20Ultra%20Energia%20e%20quero%20falar%20com%20o%20time%20comercial%20sobre%20energia%20solar." target="_blank" rel="noopener" class="btn btn-primary">Fale com nosso time comercial</a>
@@ -817,6 +832,17 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       bolha.classList.toggle('on', !e[0].isIntersecting);
     }, {threshold:.15}).observe(hero);
   })();
+
+  /* --- cliques no Instagram tambem viram evento ---------------------- */
+  document.querySelectorAll('[data-social]').forEach(function(a){
+    a.addEventListener('click', function(){
+      dataLayer.push({
+        event:    'clique_instagram',
+        origem:   a.dataset.origem || 'sem origem',
+        campanha: u || 'direto'
+      });
+    });
+  });
 
   var form = document.getElementById('lead-form');
   function setErr(el, on){
